@@ -82,6 +82,13 @@ using BlazorWebAssembly.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Projects\BlazorDemo\BlazorDemo\BlazorWebAssembly\_Imports.razor"
+using BlazorWebAssembly.Data;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {

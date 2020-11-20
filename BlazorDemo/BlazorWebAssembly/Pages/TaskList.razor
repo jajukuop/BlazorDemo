@@ -1,0 +1,36 @@
+﻿<h3>@Name - TODO</h3>
+
+@if (taskList.Count > 0)
+{
+    <div class="progress my-2">
+        <div class="progress-bar" role="progressbar"
+             style="width: @(percentDone)%"
+             aria-valuemin="0" aria-valuemax="100"
+             ></div>
+    </div>
+}
+
+<EditForm Model="@newTask" OnValidSubmit="AddTask">
+    <InputText @bind-Value="newTask.Task" />
+    <button type="submit">Add Task</button>
+</EditForm>
+
+<ul class="list-group">
+    @foreach (var task in taskList)
+    {
+        if (task.IsComplete)
+        {
+            <li class="list-group-item list-group-item-secondary my-1" 
+                @onclick="(() => task.IsComplete = !task.IsComplete)">
+                <del>@task.Task</del>
+            </li>
+        }
+        else
+        {
+            <li class="list-group-item list-group-item-success my-1"
+                @onclick="(() => task.IsComplete = !task.IsComplete)">
+                @task.Task
+            </li>
+        }
+    }
+</ul>
