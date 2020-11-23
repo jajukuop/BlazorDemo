@@ -1,0 +1,26 @@
+﻿@page "/databinding"
+@inherits DataBindingBase
+
+@if (HeadingHtml != null)
+{
+    @HeadingHtml
+}
+else
+{
+    <h2>Databinding demo</h2>
+}
+
+
+<h3>One way data binding</h3>
+
+<div>
+    <label>First name:</label> @FirstName<br />
+    <label>Last name:</label> @LastName
+</div>
+
+<div>
+    <input value="@FirstName" @onchange="@(e => { FirstName = e.Value.ToString(); })" />
+    <input @bind="@LastName"  @bind:event="oninput" />
+</div>
+
+
